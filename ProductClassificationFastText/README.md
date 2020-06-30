@@ -22,6 +22,11 @@
 
    * I need to figure out a way to have the embedding matrix not be part of the model itself, but still use it.
 
+* Update 6/29/2020: I have determined the way I will go about the embedding and the actual neural network
+   * First, I will use fasttext to create the embeddings BEFORE inputting into the siamese network. This will make it so that we can use the n-grams function of fasttext.
+   * The only downside of this is that the input to the network is the embedding instead of the text data which is probably looked down upon.
+   * The acutal neural network is LSTM -> Dropout -> LSTM -> Dropout -> LSTM -> Dropout -> Dense -> Dropout -> Dense and the last dense layer is the output, which will will be used for the constrastive loss function
+
 * The WDC Product Data researchers also did their own experiments, and they actually have a model that they trained using their own custom fasttext encoding model
    * They got about 90% accuracy on their training set which included computers, cameras, watches and shoes
       * They used a regular vanilla RNN which I find odd because an LSTM would surely capture the relatability between the tokens much better than a standard LSTM
