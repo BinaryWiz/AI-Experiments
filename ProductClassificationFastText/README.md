@@ -17,8 +17,10 @@
 * After further looking at the data, it seems like each product in the dataset as a cluser_id.
    * Essentially, this means that we can just use the cluster_id to build the positive examples of matches and use random examples outside of the cluster to build our negative training examples
 
-* Update: The way the dataset works is that for each entry in it, there is a title_right and a title_left. These are the two titles represented in a pair. There is a label that tells you whether the titles represent the same product or not. Using this, we already have built a dataset of positive and negative example pairs.
+* Update 6/29/2020: The way the dataset works is that for each entry in it, there is a title_right and a title_left. These are the two titles represented in a pair. There is a label that tells you whether the titles represent the same product or not. Using this, we already have built a dataset of positive and negative example pairs.
    * I also have created a seperate CSV file that is a simpler version of teh original dataset. It ony containes the titles with a label (either 0 or 1)
+
+   * I need to figure out a way to have the embedding matrix not be part of the model itself, but still use it.
 
 * The WDC Product Data researchers also did their own experiments, and they actually have a model that they trained using their own custom fasttext encoding model
    * They got about 90% accuracy on their training set which included computers, cameras, watches and shoes
