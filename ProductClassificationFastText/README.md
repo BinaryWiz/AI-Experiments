@@ -27,6 +27,11 @@
    * The only downside of this is that the input to the network is the embedding instead of the text data which is probably looked down upon.
    * The acutal neural network is LSTM -> Dropout -> LSTM -> Dropout -> LSTM -> Dropout -> Dense -> Dropout -> Dense and the last dense layer is the output, which will will be used for the constrastive loss function
 
+* Update 7/1/2020: This simply is not working. The training set loss gets stuck around 0.3330 with an accuracy around 0.80 and the validation loss is ~1.990 meaning it is clearly not generalizing well. I don't think constrastive loss is the way to go about this problem.
+
+* Update 7/1/2020: I changed to a sigmoid output and binary cross-entropy as the loss function. Hopefully this will act as more of a similarity function
+   * In addition, the dataset is messed up. There are about 10,000 positive examples and 40,000 negative examples, which explains why the model was simply learning to predict negative on everything, yielding an 80% accuracy on training, while getting 100% on the validation and 100% on the test. I will have to properly cleanse the data.
+
 * The WDC Product Data researchers also did their own experiments, and they actually have a model that they trained using their own custom fasttext encoding model
    * They got about 90% accuracy on their training set which included computers, cameras, watches and shoes
       * They used a regular vanilla RNN which I find odd because an LSTM would surely capture the relatability between the tokens much better than a standard LSTM
