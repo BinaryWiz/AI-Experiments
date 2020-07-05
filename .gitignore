@@ -1,4 +1,6 @@
 __pycache__/
 .ipynb_checkpoints/
 ProductClassificationFastText/data/*
+!ProductClassificationFastText/data/.gitkeep
 ProductClassificationFastText/models/*
+!ProductClassificationFastText/models/.gitkeep
