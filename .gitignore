@@ -1,6 +1,7 @@
 __pycache__/
 .ipynb_checkpoints/
 PyTorchPractice/data
+PyTorchPractice/bert_model.pt
 ProductClassificationFastText/data/*
 !ProductClassificationFastText/data/.gitkeep
 ProductClassificationFastText/models/*
